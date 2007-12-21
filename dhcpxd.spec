@@ -11,6 +11,7 @@ Patch2:		dhcpxd-1.0.3-gcc-3.3.patch
 Patch3:		dhcpxd-1.0.3-64bit-fixes.patch
 Patch4:		dhcpxd-1.0.3-varargs.patch
 Patch5:		dhcpxd-1.0.3-extra.patch
+BuildRoot:	%_tmppath/%name-%version-%release-root
 
 %description
 The primary goal of this DHCP client is to conform to the DHCP specification
