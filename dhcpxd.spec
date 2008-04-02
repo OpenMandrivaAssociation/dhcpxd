@@ -1,12 +1,11 @@
 Summary:	DHCPXD Daemon
 Name:		dhcpxd
 Version:	1.0.3
-Release:	%mkrel 18
+Release:	%mkrel 19
 License:	GPL
 Group:		System/Servers
 
 Source:		ftp://ftp.guido.yi.org:50021/dhcpxd-%{version}.tar.bz2
-Patch1:		dhcpxd-1.0.3-resolvrdv.patch
 Patch2:		dhcpxd-1.0.3-gcc-3.3.patch
 Patch3:		dhcpxd-1.0.3-64bit-fixes.patch
 Patch4:		dhcpxd-1.0.3-varargs.patch
@@ -26,7 +25,6 @@ are run at the appropriate times.
 %prep
 
 %setup -q
-%patch1 -p1 -b .resolvrdv
 %patch2 -p1 -b .gcc3.3
 %patch3 -p1 -b .64bit-fixes
 %patch4 -p1 -b .varargs
