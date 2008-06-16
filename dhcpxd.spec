@@ -1,7 +1,7 @@
 Summary:	DHCPXD Daemon
 Name:		dhcpxd
 Version:	1.0.3
-Release:	%mkrel 19
+Release:	%mkrel 20
 License:	GPL
 Group:		System/Servers
 
