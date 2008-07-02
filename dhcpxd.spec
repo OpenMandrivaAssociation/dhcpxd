@@ -1,16 +1,15 @@
 Summary:	DHCPXD Daemon
 Name:		dhcpxd
 Version:	1.0.3
-Release:	%mkrel 20
+Release:	%mkrel 21
 License:	GPL
 Group:		System/Servers
-
 Source:		ftp://ftp.guido.yi.org:50021/dhcpxd-%{version}.tar.bz2
 Patch2:		dhcpxd-1.0.3-gcc-3.3.patch
 Patch3:		dhcpxd-1.0.3-64bit-fixes.patch
 Patch4:		dhcpxd-1.0.3-varargs.patch
 Patch5:		dhcpxd-1.0.3-extra.patch
-BuildRoot:	%_tmppath/%name-%version-%release-root
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 The primary goal of this DHCP client is to conform to the DHCP specification
@@ -45,19 +44,21 @@ perl -pi -e 's/-Wall/\$(RPM_OPT_FLAGS) -Wall/g;' Makefile
 %endif
 
 %install
-rm -rf $RPM_BUILD_ROOT
-mkdir -p $RPM_BUILD_ROOT/sbin $RPM_BUILD_ROOT%{_mandir}/man8
-mkdir -p $RPM_BUILD_ROOT%{_sysconfdir}/dhcpxd
-cp -f filter $RPM_BUILD_ROOT%{_sysconfdir}/dhcpxd
-cp -df install/* $RPM_BUILD_ROOT%{_sysconfdir}/dhcpxd
+rm -rf %{buildroot}
 
-ln -sf /dev/log $RPM_BUILD_ROOT%{_sysconfdir}/dhcpxd/out
+mkdir -p %{buildroot}/sbin %{buildroot}%{_mandir}/man8
+mkdir -p %{buildroot}%{_sysconfdir}/dhcpxd
 
-install -m 500 dhcpxd $RPM_BUILD_ROOT/sbin/dhcpxd
-install -m 644 dhcpxd.8 $RPM_BUILD_ROOT%{_mandir}/man8/dhcpxd.8
+cp -f filter %{buildroot}%{_sysconfdir}/dhcpxd
+cp -df install/* %{buildroot}%{_sysconfdir}/dhcpxd
+
+ln -sf /dev/log %{buildroot}%{_sysconfdir}/dhcpxd/out
+
+install -m 500 dhcpxd %{buildroot}/sbin/dhcpxd
+install -m 644 dhcpxd.8 %{buildroot}%{_mandir}/man8/dhcpxd.8
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
