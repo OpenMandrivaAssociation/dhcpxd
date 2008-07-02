@@ -9,6 +9,7 @@ Patch2:		dhcpxd-1.0.3-gcc-3.3.patch
 Patch3:		dhcpxd-1.0.3-64bit-fixes.patch
 Patch4:		dhcpxd-1.0.3-varargs.patch
 Patch5:		dhcpxd-1.0.3-extra.patch
+Patch6:		dhcpxd-glibc28_fix.diff
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
@@ -28,6 +29,7 @@ are run at the appropriate times.
 %patch3 -p1 -b .64bit-fixes
 %patch4 -p1 -b .varargs
 %patch5 -p1 -b .extra
+%patch6 -p0 -b .glibc28_fix
 
 %build
 %configure
