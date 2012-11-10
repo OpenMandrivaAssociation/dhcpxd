@@ -1,0 +1,11 @@
+--- dhcpxd-1.0.3/dhcp.cpp.64bit-fixes	2000-01-21 21:20:37.000000000 -0500
++++ dhcpxd-1.0.3/dhcp.cpp	2005-08-23 07:55:05.000000000 -0400
+@@ -266,7 +266,7 @@ int     DHCP::DHCPRawSocket::Recv(void *
+ int     DHCP::DHCPRawSocket::CheckDup(const unsigned char *ip,const unsigned char *sip)
+ {
+         ARP a;
+-        return (int) a.GetHW(s,Interface,ip,sip,HWAddress,1);
++        return a.GetHW(s,Interface,ip,sip,HWAddress,1) != NULL;
+ }
+ 
+ void    DHCP::DHCPRawSocket::Unarp()

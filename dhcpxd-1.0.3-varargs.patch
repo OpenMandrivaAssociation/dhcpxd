@@ -1,0 +1,11 @@
+--- dhcpxd-1.0.3/dhcpclient.cpp.varargs	2005-08-23 07:49:42.000000000 -0400
++++ dhcpxd-1.0.3/dhcpclient.cpp	2005-08-23 07:57:16.000000000 -0400
+@@ -222,7 +222,7 @@ void    DHCPClient::ExecScript(const cha
+ 
+         int pid = fork();
+         if(pid == 0) {
+-                execl(ShPath,ShPath,"-c",fname,0);
++                execl(ShPath,ShPath,"-c",fname,(char *)0);
+                 exit(1);
+         };
+         if(pid > 0) waitpid(pid,0,0);

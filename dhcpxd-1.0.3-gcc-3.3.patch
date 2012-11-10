@@ -1,0 +1,109 @@
+--- dhcpxd-1.0.3/dhcpclient.cpp~	2000-01-22 03:20:37.000000000 +0100
++++ dhcpxd-1.0.3/dhcpclient.cpp	2003-07-16 23:36:35.000000000 +0200
+@@ -1086,56 +1086,56 @@ int     DHCPClient::ProcessCmdLine(char 
+ {
+ 
+ #ifndef __WIN32__
+-        static char help_msg[] = "Usage: dhcpxd -k|--kill [interface] | -l|--renew [interface] | [-abcdehinprtwABCDHIOR] interface
+-Parameters:
+-        -a              Always request broadcasted replies.
+-        -b              Always broadcast requests.
+-        -c              Check to see if IP address already in use.
+-        -d              Discover any IP address.
+-                        This simply ignores the cached IP address for
+-                        the initial requesting sequence.
+-        -e extension    Use the specified extension for script execution.
+-                        Default is \"def\".
+-        -h              This help screen.
+-        -i              Initiate inform session.
+-                        Use this to get the information on statically.
+-                        configured IPs.
+-        -k iface        Kill a session.
+-        -l iface        Trigger renew state on interface(s).
+-        -n              Never request broadcasted replies.
+-                        Suggested technique for cable modems.
+-                        However, you might always want this anyways.
+-                        Using this options is STRONGLY recommended.
+-        -o number       Request the option represented by the `number` to
+-                        be sent in responses. Might be needed for the WINS.
+-                        option.
+-        -p VAR=VALUE    Supply the specified parameter(s) to scripts.
+-        -r number       Supply the specified renew time (hours) in requests.
+-                        Default is 24.
+-                        NOTE: This is almost always overridden by the server.
+-        -t              Test DHCP mechanisms on specific interface.
+-                        Useful for determining the operating mode of the
+-                        DHCP server.
+-        -v              Display version information.
+-        -w              Wait for the session to succeed or timeout.
+-        -A client_id    Append the specified client identifier to default.
+-        -B iface        Use the specified base interface for requests.
+-                        Default is the specified target interface.
+-        -C client_id    Use the specified client identifier.
+-                        Default is the hardware MAC address.
+-        -D              Delete the cache before starting session.
+-        -H hostname     Supply the specified host name in requests.
+-        -I string       Supply the specified class identifier in requests.
+-        -N              Upon receiving NACK force into reselect.
+-        -O num string   Supply the specified option in requests.
+-                        Usage: -O 89 JerryWalker
+-        -R              Do not release the IP address.
+-                        This is useful for keeping the same IP address.
+-                        If this option is specified more than once, the
+-                        client will renew the address before shutting down.
+-        -T num          Set timeout value in seconds.
+-        -W              Do not wait when collecting DHCPOFFER responses.
+-                        Useful for making the protocol \"speedy\".
++        static char help_msg[] = "Usage: dhcpxd -k|--kill [interface] | -l|--renew [interface] | [-abcdehinprtwABCDHIOR] interface\n\
++Parameters:\n\
++        -a              Always request broadcasted replies.\n\
++        -b              Always broadcast requests.\n\
++        -c              Check to see if IP address already in use.\n\
++        -d              Discover any IP address.\n\
++                        This simply ignores the cached IP address for\n\
++                        the initial requesting sequence.\n\
++        -e extension    Use the specified extension for script execution.\n\
++                        Default is \"def\".\n\
++        -h              This help screen.\n\
++        -i              Initiate inform session.\n\
++                        Use this to get the information on statically.\n\
++                        configured IPs.\n\
++        -k iface        Kill a session.\n\
++        -l iface        Trigger renew state on interface(s).\n\
++        -n              Never request broadcasted replies.\n\
++                        Suggested technique for cable modems.\n\
++                        However, you might always want this anyways.\n\
++                        Using this options is STRONGLY recommended.\n\
++        -o number       Request the option represented by the `number` to\n\
++                        be sent in responses. Might be needed for the WINS.\n\
++                        option.\n\
++        -p VAR=VALUE    Supply the specified parameter(s) to scripts.\n\
++        -r number       Supply the specified renew time (hours) in requests.\n\
++                        Default is 24.\n\
++                        NOTE: This is almost always overridden by the server.\n\
++        -t              Test DHCP mechanisms on specific interface.\n\
++                        Useful for determining the operating mode of the\n\
++                        DHCP server.\n\
++        -v              Display version information.\n\
++        -w              Wait for the session to succeed or timeout.\n\
++        -A client_id    Append the specified client identifier to default.\n\
++        -B iface        Use the specified base interface for requests.\n\
++                        Default is the specified target interface.\n\
++        -C client_id    Use the specified client identifier.\n\
++                        Default is the hardware MAC address.\n\
++        -D              Delete the cache before starting session.\n\
++        -H hostname     Supply the specified host name in requests.\n\
++        -I string       Supply the specified class identifier in requests.\n\
++        -N              Upon receiving NACK force into reselect.\n\
++        -O num string   Supply the specified option in requests.\n\
++                        Usage: -O 89 JerryWalker\n\
++        -R              Do not release the IP address.\n\
++                        This is useful for keeping the same IP address.\n\
++                        If this option is specified more than once, the\n\
++                        client will renew the address before shutting down.\n\
++        -T num          Set timeout value in seconds.\n\
++        -W              Do not wait when collecting DHCPOFFER responses.\n\
++                        Useful for making the protocol \"speedy\".\n\
+ ";
+ #else
+         static char *help_msg = "";

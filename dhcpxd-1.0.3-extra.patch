@@ -1,0 +1,11 @@
+--- dhcpxd-1.0.3/dhcpclient.cpp.extra	2007-03-17 16:09:00.000000000 +0100
++++ dhcpxd-1.0.3/dhcpclient.cpp	2007-03-17 16:09:29.000000000 +0100
+@@ -172,7 +172,7 @@
+         void            Close();
+ 
+         DHCPClient();
+-        DHCPClient::DHCPClient(StartupData &);
++        DHCPClient(StartupData &);
+         void            Last();
+         void            First();
+         ~DHCPClient();

@@ -1,0 +1,28 @@
+--- dhcpclient.cpp	2008-07-02 08:51:25.000000000 -0400
++++ dhcpclient.cpp.oden	2008-07-02 08:50:53.000000000 -0400
+@@ -260,14 +260,14 @@ void    DHCPClient::CFork()
+                 setsid();
+                 int fd;
+ 
+-                fd = open("/dev/null",O_CREAT|O_APPEND|O_NOCTTY|O_SYNC|O_RDONLY);
++                fd = open("/dev/null",O_CREAT, 0666|O_APPEND|O_NOCTTY|O_SYNC|O_RDONLY);
+                 dup2(fd,0);
+                 close(fd);
+ 
+                 char fname[129],sym[129];
+                 int n;
+                 sprintf(fname,"%s/out",MainPath);
+-                fd = open(fname,O_CREAT|O_APPEND|O_NOCTTY|O_SYNC|O_WRONLY);
++                fd = open(fname,O_CREAT, 0666|O_APPEND|O_NOCTTY|O_SYNC|O_WRONLY);
+                 if(fd != -1) {
+                         strcpy(sym,fname);
+                         n = readlink(fname,sym,128);
+@@ -278,7 +278,7 @@ void    DHCPClient::CFork()
+                         printf("Switch to console %s\n",sym);
+                 };
+ 
+-                fd = open("/dev/tty1",O_CREAT|O_APPEND|O_NOCTTY|O_SYNC|O_WRONLY);
++                fd = open("/dev/tty1",O_CREAT, 0666|O_APPEND|O_NOCTTY|O_SYNC|O_WRONLY);
+                 dup2(fd,2);
+                 close(fd);
+ 
