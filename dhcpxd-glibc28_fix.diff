@@ -1,5 +1,5 @@
---- dhcpclient.cpp	2008-07-02 08:51:25.000000000 -0400
-+++ dhcpclient.cpp.oden	2008-07-02 08:50:53.000000000 -0400
+--- ./dhcpclient.cpp	2008-07-02 08:51:25.000000000 -0400
++++ ./dhcpclient.cpp.oden	2008-07-02 08:50:53.000000000 -0400
 @@ -260,14 +260,14 @@ void    DHCPClient::CFork()
                  setsid();
                  int fd;
