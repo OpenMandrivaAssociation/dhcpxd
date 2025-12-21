@@ -11,6 +11,11 @@ Patch4:		dhcpxd-1.0.3-varargs.patch
 Patch5:		dhcpxd-1.0.3-extra.patch
 Patch6:		dhcpxd-glibc28_fix.diff
 
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 %description
 The primary goal of this DHCP client is to conform to the DHCP specification
 defined in RFC2131 which is now the draft standard. However, the client can
